@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yyt.dao.UserMapper">
+
+    <select id="selectUserById" parameterType="int" resultType="com.yyt.entity.User">
+        SELECT * FROM mapper.Mapper WHERE id = #{id}
+    </select>
+
+    <select id="selectAllUsers" resultType="com.yyt.entity.User">
+        SELECT * FROM mapper.Mapper
+    </select>
+
+    <insert id="insertUser" parameterType="com.yyt.entity.User">
+        INSERT INTO mapper.Mapper (name, email) VALUES (#{name}, #{email})
+    </insert>
+
+    <update id="updateUser" parameterType="com.yyt.entity.User">
+        UPDATE mapper.Mapper SET name = #{name}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        DELETE FROM mapper.Mapper WHERE id = #{id}
+    </delete>
+
+</mapper>
